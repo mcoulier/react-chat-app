@@ -1,11 +1,13 @@
 import Chat from "./components/Chat/Chat";
+import Connect from "./components/Connect/Connect";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-
   return (
-    <div className="App">
-      <Chat />
-    </div>
+    <Routes>
+      <Route path="/" element={<Connect />} />
+      <Route path="/chat/:username" element={<Chat />} />
+    </Routes>
   );
 }
 
