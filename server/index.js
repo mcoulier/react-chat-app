@@ -9,6 +9,7 @@ const port = 8080;
 const cors = require("cors");
 
 const { addUser, removeUser, getUser } = require("./users");
+const formatMessage = require("./utils/formatMessage");
 
 app.use(cors());
 
@@ -27,13 +28,14 @@ io.on("connection", (socket) => {
     socket.join(user.room);
   });
 
-  socket.on("send message", (msg, username) => {
+  socket.on("send message", (message) => {
     const user = getUser(socket.id);
-    io.to(user.room).emit("message", msg);
+    
+    io.to(user.room).emit("message", formatMessage(user.username, message));
   });
 
   socket.on("disconnect", () => {
-    const user = removeUser(socket.id);
+    const remove = removeUser(socket.id);
     console.log(`${socket.id} disconnected`);
   });
 });
