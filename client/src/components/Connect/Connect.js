@@ -1,34 +1,35 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Connect() {
   const [username, setUsername] = useState("");
-  const [isConnected, setIsConnected] = useState(false);
+  const [room, setRoom] = useState("");
+  let navigate = useNavigate();
 
   const handleConnect = () => {
-    if (!username) {
-      return alert("Please enter a username");
+    if (!username || !room) {
+      return alert("Please enter all fields");
     }
-    setIsConnected(true);
+    navigate(`/chat/${username}/${room}`);
   };
 
   return (
-    <div>
-      {isConnected ? (
-        <Navigate to={`/chat/${username}`} />
-      ) : (
-        <>
-          <input
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            placeholder="Enter a username"
-          />
-          <button onClick={handleConnect} type="submit">
-            Connect
-          </button>
-        </>
-      )}
-    </div>
+    <>
+      <input
+        type="text"
+        onChange={(e) => setUsername(e.target.value)}
+        value={username}
+        placeholder="Enter a username"
+      />
+      <input
+        type="text"
+        onChange={(e) => setRoom(e.target.value)}
+        value={room}
+        placeholder="Enter room name"
+      />
+      <button onClick={handleConnect} type="submit">
+        Connect
+      </button>
+    </>
   );
 }
