@@ -5,7 +5,11 @@ import { BrowserRouter } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-const theme = createTheme();
+const theme = createTheme({
+  typography: {
+    fontFamily: `'Poppins', 'sans-serif'`,
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>

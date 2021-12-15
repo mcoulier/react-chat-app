@@ -25,7 +25,6 @@ export default function Connect() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
           pt: 5,
         }}
       >

@@ -7,8 +7,9 @@ function App() {
   return (
     <Box
       sx={{
+        position: "relative",
         backgroundColor: "#9CBBF0",
-        height: "100vh",
+        minHeight: "100vh",
       }}
     >
       <Routes>
