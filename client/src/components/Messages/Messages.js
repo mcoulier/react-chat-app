@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 export default function Messages({ messages, room }) {
+  const messagesRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
   return (
     <Box
       sx={{
@@ -43,6 +53,7 @@ export default function Messages({ messages, room }) {
             </Typography>
           </Box>
         ))}
+        <div ref={messagesRef} />
       </Box>
     </Box>
   );
