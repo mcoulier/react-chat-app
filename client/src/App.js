@@ -7,9 +7,11 @@ function App() {
   return (
     <Box
       sx={{
-        position: "relative",
         backgroundColor: "#9CBBF0",
         minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
       }}
     >
       <Routes>

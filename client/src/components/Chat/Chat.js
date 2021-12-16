@@ -24,7 +24,6 @@ export default function Chat() {
     socket.emit("join", { username, room }, (error) => {
       if (error) {
         navigate("/");
-        alert(error);
       }
     });
   }, [username, room, navigate]);

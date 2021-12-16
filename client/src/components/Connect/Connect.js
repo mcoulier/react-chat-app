@@ -6,15 +6,17 @@ import InputAdornment from "@mui/material/InputAdornment";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import AlertDialog from "../AlertDialog/AlertDialog";
 
 export default function Connect() {
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   let navigate = useNavigate();
+  const [showDialog, setShowDialog] = useState(false);
 
   const handleConnect = () => {
     if (!username || !room) {
-      return alert("Please enter all fields");
+      return setShowDialog(true);
     }
     navigate(`/chat/${username}/${room}`);
   };
@@ -25,7 +27,8 @@ export default function Connect() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          pt: 5,
+          p: 5,
+          backgroundColor: "#D9E1D9",
         }}
       >
         <TextField
@@ -59,6 +62,9 @@ export default function Connect() {
         <Button variant="contained" onClick={handleConnect} type="submit">
           Connect
         </Button>
+        {showDialog && (
+          <AlertDialog open={showDialog} setShowDialog={setShowDialog} />
+        )}
       </Box>
     </Container>
   );
