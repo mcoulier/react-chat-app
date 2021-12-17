@@ -24,16 +24,6 @@ export default function Messages({ messages, room }) {
         p: 2,
       }}
     >
-      <Typography
-        variant="h4"
-        sx={{
-          textAlign: "center",
-          pb: 2,
-          fontWeight: 600,
-        }}
-      >
-        {`Room - #${room}`}
-      </Typography>
       {messages.map(({ username, message, time, id }) => (
         <Box key={id} sx={{ display: "flex", flexDirection: "column" }}>
           <Typography
@@ -48,7 +38,7 @@ export default function Messages({ messages, room }) {
                 fontWeight: 300,
               }}
             >
-              -{time}
+              - {time}
             </Typography>
           </Typography>
           <Typography

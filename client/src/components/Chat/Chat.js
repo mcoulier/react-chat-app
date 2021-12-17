@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 let socket;
 
@@ -51,6 +52,16 @@ export default function Chat() {
           pt: 5,
         }}
       >
+        <Typography
+          variant="h4"
+          sx={{
+            textAlign: "center",
+            pb: 2,
+            fontWeight: 600,
+          }}
+        >
+          {`Room - #${room}`}
+        </Typography>
         <Messages messages={messages} room={room} />
         <MessageField
           message={message}

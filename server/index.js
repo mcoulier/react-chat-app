@@ -30,7 +30,7 @@ io.on("connection", (socket) => {
 
   socket.on("send message", (message) => {
     const user = getUser(socket.id);
-    
+
     io.to(user.room).emit("message", formatMessage(user.username, message));
   });
 
