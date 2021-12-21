@@ -4,8 +4,14 @@ const { createServer } = require("http");
 const server = createServer(app);
 
 const { Server } = require("socket.io");
-const io = new Server(server);
-const port = 8080;
+const io = new Server(server, {
+  cors: {
+    origin: "https://chat-app-react-socket.netlify.app",
+    methods: ["GET"],
+  },
+});
+
+const port = process.env.PORT || 8080;
 const cors = require("cors");
 
 const { addUser, removeUser, getUser } = require("./users");

@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 let socket;
 
 export default function Chat() {
-  const server = "localhost:8080";
+  const server = process.env.REACT_APP_SERVER_URL;
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const { username, room } = useParams();

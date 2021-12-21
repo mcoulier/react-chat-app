@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-export default function Messages({ messages, room }) {
+export default function Messages({ messages }) {
   const messagesRef = useRef(null);
 
   const scrollToBottom = () => {
