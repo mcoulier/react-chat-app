@@ -11,7 +11,6 @@ export default function Messages({ messages, room }) {
 
   useEffect(() => {
     scrollToBottom();
-    console.log(messages);
   }, [messages]);
 
   return (

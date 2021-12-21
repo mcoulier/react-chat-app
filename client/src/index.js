@@ -9,6 +9,11 @@ const theme = createTheme({
   typography: {
     fontFamily: `'Poppins', 'sans-serif'`,
   },
+  palette: {
+    primary: {
+      main: "#002f59",
+    },
+  },
 });
 
 ReactDOM.render(

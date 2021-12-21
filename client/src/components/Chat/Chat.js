@@ -53,11 +53,12 @@ export default function Chat() {
         }}
       >
         <Typography
-          variant="h4"
+          variant="h2"
           sx={{
             textAlign: "center",
             pb: 2,
-            fontWeight: 600,
+            fontWeight: 400,
+            fontSize: "2rem",
           }}
         >
           {`Room - #${room}`}
