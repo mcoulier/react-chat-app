@@ -1,14 +1,16 @@
 import Chat from "./components/Chat/Chat";
 import Connect from "./components/Connect/Connect";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import logo from "./components/images/logo.png";
 
 function App() {
   return (
     <Box
       sx={{
-        backgroundColor: "#9CBBF0",
+        backgroundImage:
+          "radial-gradient(circle, #9cbbf0, #8aa7e4, #7b93d7, #6e7ec9, #636abb)",
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
@@ -16,18 +18,31 @@ function App() {
         alignItems: "center",
       }}
     >
-      <Typography
-        variant="h1"
+      <Box
         sx={{
-          mb: 4,
-          fontSize: "clamp(3rem, 6vw, 5rem)",
-          fontWeight: 700,
-          textShadow: "1px 2px 0px white",
+          display: "flex",
+          alignItems: "center",
+          mb: 5,
+          mt: 2,
+          textDecoration: "none",
         }}
-        color="primary"
       >
-        Chat App
-      </Typography>
+        <Link to="/">
+          <img alt="" src={logo} height={80} width={80} />
+        </Link>
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: "clamp(3rem, 6vw, 5rem)",
+            fontWeight: 700,
+            textShadow: "3px 1px 0px #6691EE",
+            pl: 2,
+          }}
+          color="primary"
+        >
+          Chat App
+        </Typography>
+      </Box>
       <Routes>
         <Route path="/" element={<Connect />} />
         <Route path="/chat/:username/:room" element={<Chat />} />

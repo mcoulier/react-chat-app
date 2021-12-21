@@ -56,9 +56,8 @@ export default function Chat() {
           variant="h2"
           sx={{
             textAlign: "center",
-            pb: 2,
-            fontWeight: 400,
-            fontSize: "2rem",
+            pb: 1.5,
+            fontSize: "1.6rem",
           }}
         >
           {`Room - #${room}`}
