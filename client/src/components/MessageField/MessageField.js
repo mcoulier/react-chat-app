@@ -11,6 +11,7 @@ export default function MessageField({ message, setMessage, sendMessage }) {
       value={message}
       label="Type something"
       variant="outlined"
+      autoFocus="true"
       onKeyPress={(e) => (e.key === "Enter" ? sendMessage(e) : null)}
       sx={{
         mb: 2,

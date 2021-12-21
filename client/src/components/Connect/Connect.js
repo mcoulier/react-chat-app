@@ -15,7 +15,10 @@ export default function Connect() {
   const [showDialog, setShowDialog] = useState(false);
 
   const handleConnect = () => {
-    if (!username || !room) {
+    const name = username.trim();
+    const roomval = room.trim();
+
+    if (!name || !roomval) {
       return setShowDialog(true);
     }
     navigate(`/chat/${username}/${room}`);
@@ -37,6 +40,9 @@ export default function Connect() {
           variant="outlined"
           value={username}
           required
+          inputProps={{
+            maxLength: 20,
+          }}
           sx={{
             pb: 2,
           }}
@@ -55,6 +61,9 @@ export default function Connect() {
           label="Enter room name"
           variant="outlined"
           required
+          inputProps={{
+            maxLength: 20,
+          }}
           sx={{
             pb: 2,
           }}
